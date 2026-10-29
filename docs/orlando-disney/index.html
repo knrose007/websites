@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orlando Disney Trip Guide</title>
+  <meta name="description" content="A friendly, papercraft-illustrated guide to planning a trip to Orlando to visit Walt Disney World.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #fbf5ea;
+      --paper-2: #f3e8d4;
+      --card: #fffdf8;
+      --ink: #2f2a3b;
+      --ink-soft: #5d5670;
+      --coral: #ef6f5e;
+      --teal: #2a9d8f;
+      --sun: #f4b942;
+      --sky: #5b8def;
+      --plum: #8e5bb5;
+      --edge: rgba(47, 42, 59, .12);
+      --shadow: 0 1px 0 rgba(47,42,59,.06), 0 6px 0 -2px var(--paper-2), 0 8px 18px rgba(47,42,59,.12);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #1f1b2a;
+        --paper-2: #2a2538;
+        --card: #2b2639;
+        --ink: #f4eee4;
+        --ink-soft: #c9c0d6;
+        --edge: rgba(255,255,255,.1);
+        --shadow: 0 1px 0 rgba(0,0,0,.3), 0 6px 0 -2px #171420, 0 10px 22px rgba(0,0,0,.4);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Nunito", system-ui, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image:
+        radial-gradient(rgba(120, 100, 70, .07) 1px, transparent 1px),
+        radial-gradient(rgba(120, 100, 70, .05) 1px, transparent 1px);
+      background-size: 22px 22px, 37px 37px;
+      background-position: 0 0, 11px 17px;
+    }
+    h1, h2, h3 { font-family: "Fredoka", "Nunito", sans-serif; line-height: 1.15; margin: 0 0 .5em; }
+    h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); }
+    h3 { font-size: 1.3rem; }
+    p { margin: 0 0 1em; }
+    a { color: var(--teal); font-weight: 700; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+    /* Navigation */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--paper) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px dashed var(--edge);
+    }
+    nav .wrap { display: flex; gap: 6px; overflow-x: auto; padding-top: 10px; padding-bottom: 10px; scrollbar-width: none; }
+    nav a {
+      flex: none; text-decoration: none; color: var(--ink); font-family: "Fredoka", sans-serif; font-weight: 600;
+      padding: 6px 14px; border-radius: 999px; background: var(--card); box-shadow: 0 2px 0 var(--edge);
+    }
+    nav a:hover { background: var(--sun); color: #2f2a3b; }
+
+    /* Hero */
+    header.hero { padding: 36px 0 12px; }
+    .hero-card {
+      position: relative; border-radius: 22px; overflow: hidden; background: var(--card);
+      box-shadow: var(--shadow); transform: rotate(-.4deg);
+    }
+    .hero-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+    .hero-text {
+      position: relative; margin: -70px auto 0; width: min(92%, 760px); padding: 26px 28px 22px;
+      background: var(--card); border-radius: 18px; box-shadow: var(--shadow); transform: rotate(.6deg); text-align: center;
+    }
+    .hero-text h1 { font-size: clamp(2rem, 6vw, 3.4rem); color: var(--coral); }
+    .hero-text p { color: var(--ink-soft); font-size: 1.15rem; margin: 0; }
+    .tag {
+      display: inline-block; font-family: "Fredoka", sans-serif; font-weight: 600; font-size: .85rem; letter-spacing: .04em;
+      text-transform: uppercase; color: #2f2a3b; background: var(--sun); padding: 3px 12px; border-radius: 6px;
+      transform: rotate(-2deg); margin-bottom: 10px;
+    }
+
+    section { padding: 56px 0 8px; scroll-margin-top: 60px; }
+    .lead { color: var(--ink-soft); max-width: 62ch; }
+
+    /* Paper cards */
+    .grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card {
+      background: var(--card); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); position: relative;
+    }
+    .card:nth-child(odd) { transform: rotate(-.5deg); }
+    .card:nth-child(even) { transform: rotate(.5deg); }
+    .card .icon {
+      width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 1.4rem;
+      margin-bottom: 12px; box-shadow: 0 3px 0 var(--edge);
+    }
+    .tape::before {
+      content: ""; position: absolute; top: -10px; left: 50%; width: 90px; height: 22px; transform: translateX(-50%) rotate(-3deg);
+      background: rgba(244, 185, 66, .55); border-radius: 3px;
+    }
+
+    /* Parks */
+    .parks { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .park { background: var(--card); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); }
+    .park:nth-child(1) { transform: rotate(-.6deg); }
+    .park:nth-child(2) { transform: rotate(.5deg); }
+    .park:nth-child(3) { transform: rotate(.4deg); }
+    .park:nth-child(4) { transform: rotate(-.5deg); }
+    .park img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+    .park .body { padding: 20px 22px 22px; }
+    .park h3 { margin-bottom: .2em; }
+    .park .sub { color: var(--ink-soft); font-weight: 600; margin-bottom: .8em; }
+    .park ul { margin: 0; padding-left: 1.2em; }
+    .park li { margin-bottom: .3em; }
+    .park.mk h3 { color: var(--sky); }
+    .park.ep h3 { color: var(--teal); }
+    .park.hs h3 { color: var(--coral); }
+    .park.ak h3 { color: #4f9a3a; }
+
+    /* Season strip */
+    .seasons { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .season { border-radius: 14px; padding: 18px; color: #2f2a3b; box-shadow: 0 4px 0 rgba(47,42,59,.15); }
+    .season h3 { font-size: 1.1rem; margin-bottom: .3em; }
+    .season p { margin: 0; font-size: .97rem; }
+    .s-good { background: #bfe6c9; }
+    .s-ok { background: #fbe3a6; }
+    .s-busy { background: #f8c1b8; }
+
+    /* Itinerary */
+    .days { counter-reset: day; display: grid; gap: 18px; }
+    .day {
+      display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: start;
+      background: var(--card); border-radius: 16px; padding: 18px; box-shadow: var(--shadow);
+    }
+    .day::before {
+      counter-increment: day; content: counter(day);
+      display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%;
+      font-family: "Fredoka", sans-serif; font-weight: 700; font-size: 1.8rem; color: #fff; background: var(--coral);
+      box-shadow: 0 4px 0 rgba(47,42,59,.18);
+    }
+    .day:nth-child(2)::before { background: var(--teal); }
+    .day:nth-child(3)::before { background: var(--plum); }
+    .day:nth-child(4)::before { background: #4f9a3a; }
+    .day:nth-child(5)::before { background: var(--sky); }
+    .day h3 { margin-bottom: .25em; }
+    .day p { margin: 0; color: var(--ink-soft); }
+
+    /* Checklist */
+    .checklist { columns: 2 240px; column-gap: 28px; padding: 0; list-style: none; margin: 0; }
+    .checklist li { break-inside: avoid; padding: 6px 0 6px 34px; position: relative; }
+    .checklist li::before {
+      content: "✓"; position: absolute; left: 0; top: 7px; width: 22px; height: 22px; border-radius: 6px;
+      display: grid; place-items: center; font-size: .85rem; font-weight: 700; color: #fff; background: var(--teal);
+    }
+
+    footer { margin-top: 64px; padding: 28px 0 40px; border-top: 2px dashed var(--edge); color: var(--ink-soft); font-size: .92rem; text-align: center; }
+    footer p { max-width: 70ch; margin: 0 auto .6em; }
+
+    @media (max-width: 520px) {
+      .hero-text { margin-top: -36px; padding: 20px 18px 18px; }
+      .day { grid-template-columns: 48px 1fr; }
+      .day::before { width: 48px; height: 48px; font-size: 1.4rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <nav aria-label="Sections">
+    <div class="wrap">
+      <a href="#getting-there">Getting there</a>
+      <a href="#when">When to go</a>
+      <a href="#parks">The parks</a>
+      <a href="#stay">Where to stay</a>
+      <a href="#plan">Sample trip</a>
+      <a href="#tips">Tips</a>
+      <a href="#pack">Packing</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <img src="hero.jpg" alt="Papercraft illustration of a fairytale castle at dusk with fireworks and palm trees" width="1600" height="900">
+      </div>
+      <div class="hero-text">
+        <span class="tag">Trip guide</span>
+        <h1>Orlando &amp; Walt Disney World</h1>
+        <p>Everything you need to plan a magical, low-stress visit: when to go, how to get there, which parks to see, and what to pack.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="getting-there">
+      <div class="wrap">
+        <h2>Getting there</h2>
+        <p class="lead">Walt Disney World is in Lake Buena Vista, about 20 miles southwest of downtown Orlando. Most visitors fly into Orlando International Airport (MCO), about a 25–30 minute drive away.</p>
+        <div class="grid">
+          <div class="card tape">
+            <div class="icon" style="background:#d7e4fb">✈️</div>
+            <h3>Fly into MCO</h3>
+            <p>Orlando International has nonstop flights from most U.S. cities. Sanford (SFB) is a smaller option about 45 minutes farther north.</p>
+          </div>
+          <div class="card tape">
+            <div class="icon" style="background:#fbe3a6">🚐</div>
+            <h3>Airport to hotel</h3>
+            <p>Rideshare and taxis are the easiest. Shuttle services run between the airport and Disney hotels, and a rental car makes sense if you plan to explore beyond Disney.</p>
+          </div>
+          <div class="card tape">
+            <div class="icon" style="background:#bfe6c9">🚝</div>
+            <h3>Getting around</h3>
+            <p>Disney's free buses, boats, the Monorail, and the Skyliner gondola connect the parks and resort hotels, so you may not need a car at all.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="when">
+      <div class="wrap">
+        <h2>When to go</h2>
+        <p class="lead">Orlando is warm year-round. Crowds follow school calendars, so timing your trip around holidays makes the biggest difference.</p>
+        <div class="seasons">
+          <div class="season s-good">
+            <h3>Quieter times</h3>
+            <p>Mid-January through February (outside holiday weekends), and early November until the Thanksgiving rush.</p>
+          </div>
+          <div class="season s-ok">
+            <h3>Hot but calmer</h3>
+            <p>Late August and September. Lines are shorter, but expect heat, humidity, and the peak of hurricane season.</p>
+          </div>
+          <div class="season s-busy">
+            <h3>Busiest</h3>
+            <p>Christmas to New Year's, spring break (March–April), and summer. Plan ahead and arrive early.</p>
+          </div>
+        </div>
+        <p style="margin-top:18px">Summer afternoons often bring short thunderstorms, so plan indoor shows or a hotel break around 2–5 p.m.</p>
+      </div>
+    </section>
+
+    <section id="parks">
+      <div class="wrap">
+        <h2>The four theme parks</h2>
+        <p class="lead">Each park has its own personality. With four days you can give each one a full day; with fewer, pick the ones that match your group.</p>
+        <div class="parks">
+          <article class="park mk">
+            <img src="castle-park.jpg" alt="Papercraft illustration of a fairytale castle at the end of an old-fashioned main street" width="1600" height="1066" loading="lazy">
+            <div class="body">
+              <h3>Magic Kingdom</h3>
+              <p class="sub">The classic. Castles, parades, and fireworks.</p>
+              <ul>
+                <li>Walk down Main Street, U.S.A. to Cinderella Castle</li>
+                <li>Classic rides in Fantasyland and Adventureland</li>
+                <li>Stay for the nighttime fireworks show</li>
+              </ul>
+            </div>
+          </article>
+          <article class="park ep">
+            <img src="future-park.jpg" alt="Papercraft illustration of a giant geodesic sphere surrounded by gardens and world pavilions" width="1600" height="1066" loading="lazy">
+            <div class="body">
+              <h3>EPCOT</h3>
+              <p class="sub">Science, discovery, and food from around the world.</p>
+              <ul>
+                <li>Ride inside Spaceship Earth, the giant sphere</li>
+                <li>Stroll World Showcase's 11 country pavilions</li>
+                <li>Seasonal festivals for food, flowers, and art</li>
+              </ul>
+            </div>
+          </article>
+          <article class="park hs">
+            <img src="movie-park.jpg" alt="Papercraft illustration of an art deco Hollywood boulevard with a tall tower and spotlights" width="1600" height="1066" loading="lazy">
+            <div class="body">
+              <h3>Hollywood Studios</h3>
+              <p class="sub">Step into the movies.</p>
+              <ul>
+                <li>Star Wars: Galaxy's Edge and Toy Story Land</li>
+                <li>Big thrills like the Tower of Terror</li>
+                <li>Live stage shows throughout the day</li>
+              </ul>
+            </div>
+          </article>
+          <article class="park ak">
+            <img src="animal-park.jpg" alt="Papercraft illustration of a giant carved tree beside a savanna with giraffes, elephants, and a safari truck" width="1600" height="900" loading="lazy">
+            <div class="body">
+              <h3>Animal Kingdom</h3>
+              <p class="sub">Wildlife, adventure, and lush landscapes.</p>
+              <ul>
+                <li>See real animals on Kilimanjaro Safaris</li>
+                <li>Explore the glowing world of Pandora</li>
+                <li>Go early. It often closes before the other parks.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <p style="margin-top:22px">Have extra time? Disney also has two water parks (Typhoon Lagoon and Blizzard Beach) and Disney Springs, a free-to-enter area for shopping, dining, and entertainment.</p>
+      </div>
+    </section>
+
+    <section id="stay">
+      <div class="wrap">
+        <h2>Where to stay</h2>
+        <div class="grid">
+          <div class="card">
+            <div class="icon" style="background:#fbe3a6">🏨</div>
+            <h3>Disney resort hotels</h3>
+            <p>Value, Moderate, and Deluxe tiers. Perks include Early Theme Park Entry and free transportation to every park.</p>
+          </div>
+          <div class="card">
+            <div class="icon" style="background:#d7e4fb">🚡</div>
+            <h3>Skyliner resorts</h3>
+            <p>Several hotels sit on the Skyliner gondola line, giving an easy, scenic ride to EPCOT and Hollywood Studios.</p>
+          </div>
+          <div class="card">
+            <div class="icon" style="background:#bfe6c9">💰</div>
+            <h3>Nearby hotels</h3>
+            <p>Lake Buena Vista and International Drive have lots of hotels and vacation rentals, often cheaper. Budget for parking or rideshares.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="plan">
+      <div class="wrap">
+        <h2>A sample five-day trip</h2>
+        <p class="lead">A relaxed pace with one park per day and a rest day in the middle.</p>
+        <div class="days">
+          <div class="day"><div><h3>Magic Kingdom</h3><p>Arrive before opening, ride the classics, take a midday break, and come back for fireworks.</p></div></div>
+          <div class="day"><div><h3>Animal Kingdom</h3><p>Start with the safari while animals are most active, then see Pandora. Have an early dinner and get a good night's sleep.</p></div></div>
+          <div class="day"><div><h3>Rest &amp; Disney Springs</h3><p>Sleep in, enjoy the hotel pool, then shop and eat at Disney Springs in the evening.</p></div></div>
+          <div class="day"><div><h3>Hollywood Studios</h3><p>Head straight to the most popular rides at opening, then fill the afternoon with shows.</p></div></div>
+          <div class="day"><div><h3>EPCOT</h3><p>Do the rides in the morning, then "eat around the world" in World Showcase as the sun goes down.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tips">
+      <div class="wrap">
+        <h2>Tips that save time</h2>
+        <div class="grid">
+          <div class="card">
+            <div class="icon" style="background:#f8c1b8">📱</div>
+            <h3>Use the app</h3>
+            <p>The My Disney Experience app shows wait times and maps, and lets you mobile-order food so you skip the lines.</p>
+          </div>
+          <div class="card">
+            <div class="icon" style="background:#fbe3a6">⏰</div>
+            <h3>Go early</h3>
+            <p>The first hour after opening has the shortest lines of the day. Arriving early is the best free strategy there is.</p>
+          </div>
+          <div class="card">
+            <div class="icon" style="background:#d7e4fb">⚡</div>
+            <h3>Consider Lightning Lane</h3>
+            <p>Disney's paid skip-the-line options can save hours on busy days. Check current options and prices before you go.</p>
+          </div>
+          <div class="card">
+            <div class="icon" style="background:#bfe6c9">🍽️</div>
+            <h3>Book dining early</h3>
+            <p>Popular sit-down restaurants and character meals fill up fast. Reservations open weeks ahead.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pack">
+      <div class="wrap">
+        <h2>Packing list</h2>
+        <div class="card">
+          <ul class="checklist">
+            <li>Comfortable, broken-in walking shoes</li>
+            <li>Sunscreen and a hat</li>
+            <li>Refillable water bottle</li>
+            <li>Rain poncho for afternoon storms</li>
+            <li>Portable phone charger</li>
+            <li>Sunglasses</li>
+            <li>A light layer for air-conditioned rides</li>
+            <li>Small backpack or crossbody bag</li>
+            <li>Ziploc bag to keep your phone dry</li>
+            <li>Band-aids and blister pads</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>This is an unofficial fan travel guide and is not affiliated with or endorsed by The Walt Disney Company. Park hours, prices, and offerings change often. Check <a href="https://disneyworld.disney.go.com/">disneyworld.disney.go.com</a> before you go.</p>
+      <p>Papercraft illustrations generated with AI.</p>
+    </div>
+  </footer>
+</body>
+</html>
