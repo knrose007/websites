@@ -127,6 +127,33 @@
     .park.hs h3 { color: var(--coral); }
     .park.ak h3 { color: #4f9a3a; }
 
+    /* Dining */
+    .eat-hero { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transform: rotate(.4deg); margin: 8px 0 30px; }
+    .eat-hero img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; object-position: 50% 65%; }
+    .eat-grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+    .eat { background: var(--card); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); border-top: 8px solid var(--c, var(--coral)); }
+    .eat:nth-child(odd) { transform: rotate(-.4deg); }
+    .eat:nth-child(even) { transform: rotate(.4deg); }
+    .eat h3 { color: var(--c, var(--coral)); }
+    .eat dl { margin: 0; }
+    .eat dt { font-weight: 700; margin-top: .7em; }
+    .eat dt:first-child { margin-top: 0; }
+    .eat dd { margin: 0; color: var(--ink-soft); font-size: .97rem; }
+    .pill {
+      display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase;
+      padding: 1px 8px; border-radius: 999px; margin-left: 6px; vertical-align: 2px; color: #2f2a3b; background: var(--paper-2);
+    }
+    .pill.sit { background: #d7e4fb; }
+    .pill.quick { background: #bfe6c9; }
+    .pill.splurge { background: #f8c1b8; }
+    .snacks { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; list-style: none; }
+    .snacks li {
+      background: var(--card); border-radius: 999px; padding: 8px 16px; box-shadow: 0 3px 0 var(--edge); font-weight: 600;
+    }
+    .snacks li:nth-child(3n+1) { transform: rotate(-1.5deg); }
+    .snacks li:nth-child(3n+2) { transform: rotate(1deg); }
+    .subhead { margin-top: 40px; }
+
     /* Season strip */
     .seasons { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
     .season { border-radius: 14px; padding: 18px; color: #2f2a3b; box-shadow: 0 4px 0 rgba(47,42,59,.15); }
@@ -180,6 +207,7 @@
       <a href="#getting-there">Getting there</a>
       <a href="#when">When to go</a>
       <a href="#parks">The parks</a>
+      <a href="#eat">Where to eat</a>
       <a href="#stay">Where to stay</a>
       <a href="#plan">Sample trip</a>
       <a href="#tips">Tips</a>
@@ -302,6 +330,132 @@
           </article>
         </div>
         <p style="margin-top:22px">Have extra time? Disney also has two water parks (Typhoon Lagoon and Blizzard Beach) and Disney Springs, a free-to-enter area for shopping, dining, and entertainment.</p>
+      </div>
+    </section>
+
+    <section id="eat">
+      <div class="wrap">
+        <h2>Where to eat: a foodie's guide</h2>
+        <p class="lead">Disney World is one of the best food destinations in Florida if you know where to look. Here are the standout spots in each park and beyond, from snacks you eat while walking to once-in-a-lifetime tasting menus.</p>
+        <div class="eat-hero">
+          <img src="dining.jpg" alt="Papercraft illustration of an outdoor table filled with dishes from around the world under string lights by a lagoon at sunset" width="1600" height="1066" loading="lazy">
+        </div>
+
+        <div class="eat-grid">
+          <div class="eat" style="--c: var(--sky)">
+            <h3>Magic Kingdom</h3>
+            <dl>
+              <dt>Be Our Guest <span class="pill sit">Sit-down</span></dt>
+              <dd>French-inspired dinner inside the Beast's castle. The ballroom alone is worth the reservation.</dd>
+              <dt>Liberty Tree Tavern <span class="pill sit">Sit-down</span></dt>
+              <dd>An all-you-care-to-enjoy Thanksgiving-style feast in a colonial inn.</dd>
+              <dt>Jungle Navigation Co. Skipper Canteen <span class="pill sit">Sit-down</span></dt>
+              <dd>Adventurous global flavors with jokes from the Jungle Cruise skippers.</dd>
+            </dl>
+          </div>
+          <div class="eat" style="--c: var(--teal)">
+            <h3>EPCOT</h3>
+            <dl>
+              <dt>Eat around World Showcase <span class="pill quick">Grazing</span></dt>
+              <dd>Share small plates as you walk from country to country: ramen in Japan, pastries in France, tacos in Mexico.</dd>
+              <dt>Le Cellier Steakhouse <span class="pill splurge">Splurge</span></dt>
+              <dd>A cozy Canadian cellar known for its steaks and cheddar cheese soup.</dd>
+              <dt>Space 220 <span class="pill splurge">Splurge</span></dt>
+              <dd>Modern dishes in a dining room styled as a space station 220 miles above Earth.</dd>
+              <dt>Teppan Edo &amp; Via Napoli <span class="pill sit">Sit-down</span></dt>
+              <dd>Teppanyaki grilled at your table in Japan, and wood-fired Neapolitan pizza in Italy.</dd>
+            </dl>
+          </div>
+          <div class="eat" style="--c: var(--coral)">
+            <h3>Hollywood Studios</h3>
+            <dl>
+              <dt>The Hollywood Brown Derby <span class="pill splurge">Splurge</span></dt>
+              <dd>Old-Hollywood glamour. Order the classic Cobb salad and grapefruit cake.</dd>
+              <dt>Sci-Fi Dine-In Theater <span class="pill sit">Sit-down</span></dt>
+              <dd>Eat burgers and shakes in a vintage car while B-movie trailers play under the stars.</dd>
+              <dt>Galaxy's Edge eats <span class="pill quick">Quick</span></dt>
+              <dd>Docking Bay 7 for out-of-this-world bowls, and Oga's Cantina for creative drinks (reservations recommended).</dd>
+            </dl>
+          </div>
+          <div class="eat" style="--c: #4f9a3a">
+            <h3>Animal Kingdom</h3>
+            <dl>
+              <dt>Tiffins <span class="pill splurge">Splurge</span></dt>
+              <dd>The park's signature restaurant, with bold flavors inspired by Africa, Asia, and South America. A foodie favorite.</dd>
+              <dt>Satu'li Canteen <span class="pill quick">Quick</span></dt>
+              <dd>Build-your-own bowls in Pandora. Arguably the best quick-service food at Disney.</dd>
+              <dt>Yak &amp; Yeti <span class="pill sit">Sit-down</span></dt>
+              <dd>Pan-Asian dishes in a Himalayan-themed building.</dd>
+            </dl>
+          </div>
+          <div class="eat" style="--c: var(--plum)">
+            <h3>Disney Springs</h3>
+            <dl>
+              <dt>Jaleo <span class="pill sit">Sit-down</span></dt>
+              <dd>José Andrés' Spanish tapas, with paella cooked over an open fire.</dd>
+              <dt>Morimoto Asia <span class="pill sit">Sit-down</span></dt>
+              <dd>Iron Chef Masaharu Morimoto's pan-Asian menu. Don't miss the Peking duck.</dd>
+              <dt>Chef Art Smith's Homecomin' <span class="pill sit">Sit-down</span></dt>
+              <dd>Southern comfort food, famous for its fried chicken and doughnut desserts.</dd>
+              <dt>The Boathouse &amp; Raglan Road <span class="pill sit">Sit-down</span></dt>
+              <dd>Waterfront seafood, and an Irish pub with live music and dancers.</dd>
+            </dl>
+          </div>
+          <div class="eat" style="--c: var(--sun)">
+            <h3>Resort hotel gems</h3>
+            <dl>
+              <dt>Victoria &amp; Albert's <span class="pill splurge">Splurge</span></dt>
+              <dd>At the Grand Floridian. A Michelin-starred tasting menu and the top special-occasion dinner at Disney.</dd>
+              <dt>California Grill <span class="pill splurge">Splurge</span></dt>
+              <dd>Atop the Contemporary, with sushi and seasonal dishes. Time dinner to watch the Magic Kingdom fireworks.</dd>
+              <dt>Sanaa <span class="pill sit">Sit-down</span></dt>
+              <dd>At Animal Kingdom Lodge, with Indian-African flavors. Get the bread service while giraffes stroll past the windows.</dd>
+              <dt>'Ohana <span class="pill sit">Sit-down</span></dt>
+              <dd>Family-style Polynesian feasts at the Polynesian Village Resort.</dd>
+            </dl>
+          </div>
+        </div>
+
+        <h3 class="subhead">Beyond Disney: Orlando's food scene</h3>
+        <div class="grid">
+          <div class="card">
+            <div class="icon" style="background:#f8c1b8">⭐</div>
+            <h3>Michelin-recognized dining</h3>
+            <p>Orlando has its own MICHELIN Guide. Look up the latest starred and Bib Gourmand picks for chef-driven meals around the city.</p>
+          </div>
+          <div class="card">
+            <div class="icon" style="background:#fbe3a6">🍜</div>
+            <h3>Mills 50 district</h3>
+            <p>Orlando's go-to neighborhood for Vietnamese pho and bánh mì, plus other Asian spots and casual hidden gems.</p>
+          </div>
+          <div class="card">
+            <div class="icon" style="background:#bfe6c9">🥂</div>
+            <h3>Restaurant Row &amp; Winter Park</h3>
+            <p>Sand Lake Road's Restaurant Row is full of upscale dining near the parks. Winter Park's Park Avenue has charming cafés and bistros.</p>
+          </div>
+        </div>
+
+        <h3 class="subhead">Must-try snacks</h3>
+        <ul class="snacks">
+          <li>🍍 Dole Whip</li>
+          <li>🥨 Mickey-shaped pretzel</li>
+          <li>🍗 Smoked turkey leg</li>
+          <li>🥐 Croissant in France</li>
+          <li>🍞 School bread in Norway</li>
+          <li>🍩 Churros</li>
+          <li>🧁 Mickey ice cream bar</li>
+          <li>🌯 Spring rolls in Adventureland</li>
+        </ul>
+
+        <div class="grid" style="margin-top:30px">
+          <div class="card tape">
+            <h3>Foodie tips</h3>
+            <p><strong>Book early.</strong> Dining reservations open weeks ahead, and the most popular restaurants fill up fast. Set a reminder for the day the booking window opens.</p>
+            <p><strong>Time it with a festival.</strong> EPCOT hosts food-focused festivals through much of the year, including Food &amp; Wine in the late summer and fall, and Festival of the Arts in winter, with dozens of tasting booths.</p>
+            <p style="margin:0"><strong>Share and graze.</strong> Portions are generous. Split plates so you can try more.</p>
+          </div>
+        </div>
+        <p style="margin-top:18px; font-size:.95rem; color:var(--ink-soft)">Menus and restaurants change. Check the My Disney Experience app or each restaurant's page before you book.</p>
       </div>
     </section>
 
